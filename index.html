@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First Html5 Game</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #myCanvas {
+            background: #eee;
+            display: block;
+            margin: 0 auto;
+            margin-top: 0%;
+        }
+        /*#myCanvas {*/
+            /*position: relative;*/
+            /*left: 0;*/
+            /*right: 0;*/
+            /*top: 0;*/
+            /*bottom: 0;*/
+            /*margin: auto;*/
+            /*width: 100%;*/
+            /*height: 100%;*/
+            /*background: #eee;*/
+        /*}*/
+        #externalCanvas {
+            background: darkred;
+            display: block;
+            margin: 0 auto;
+            margin-top: 2%;
+        }
+    </style>
+</head>
+<script src="model.js"></script>
+<script src="controller.js"></script>
+<script src="game.js"></script>
+<script src="view.js"></script>
+<script src="jsfxr-min.js"></script>
+<body>
+<canvas id="externalCanvas" width="800" height="100"></canvas>
+<canvas id="myCanvas" width="800" height="480"></canvas>
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var externalCanvas = document.getElementById("externalCanvas");
+    var externalContext = externalCanvas.getContext("2d");
+    var player;
+    var letters = [];
+    var lettersColletedByPlayer = [];
+    var wordToMatch = 'ALESSIO';
+    var rightPressed = false;
+    var leftPressed = false;
+    var upPressed = false;
+    var downPressed = false;
+    var enterPressed = false;
+    var totalScore = 0;
+    var playerColor = 'darkred';
+    var letterColor = 'darkred';
+    var backgroundColor = '#eee';
+    var maxNumLetterInField = 10;
+    var lastCollectedLetter = null;
+    var numberOfWordsCompleted = 0;
+    var highscore = 0;
+    var isGameOver = false;
+    var isMainScreen = true;
+    var isGameScreen = false;
+    var descriptionTextPos = 0;
+    var textGoToLeft = true;
+    var screenTouched = false;
+
+    var angleBetweenPlayerAndTouch = null;
+    startGame();
+</script>
+</body>
+</html>
